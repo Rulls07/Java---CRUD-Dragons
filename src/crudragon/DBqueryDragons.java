@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  *
@@ -12,6 +13,9 @@ import java.sql.Statement;
  */
 public class DBqueryDragons {
 
+    /**
+     * Query returns all dragons
+     */
     public static void readAll() {
         try {
             String query = "SELECT * FROM dragons;";
@@ -36,6 +40,31 @@ public class DBqueryDragons {
                     "Erreur d'affichage dragon: " + e.getMessage()
             );
         }
+    }
+
+    /**
+     * Query returns a dragon by id
+     */
+    public static void getDragonById(int id_dragon) {
+
+    }
+
+    /**
+     * Query returns a dragon by Name
+     */
+    public static void getDragon() {
+        Scanner scanner = new Scanner(System.in);
+        String nameDragon = scanner.nextLine();
+        try {
+            String query = "SELECT * FROM dragons WHERE nom = ?";
+            PreparedStatement declaration = accessDataBase.prepareStatement(query);
+            declaration.setString(1, nameDragon);
+            int executeUpdate = declaration.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Erreur Dragon: "
+                    + e.getMessage());
+        }
+
     }
 
 }
