@@ -3,7 +3,6 @@ package crudragon;
 import static crudragon.DBqueryDragons.createDragon;
 import static crudragon.DBqueryDragons.deleteByNameDragon;
 import static crudragon.DBqueryDragons.getDragonByName;
-
 import static crudragon.DBqueryDragons.readGetAll;
 import java.util.Scanner;
 
@@ -44,14 +43,11 @@ public class UserMethodes {
             case 2:
                 getDragonByName();
                 break;
-            case 3:
-                
-                break;
             case 4:
                 deleteByNameDragon();
                 break;
             case 5:
-                System.out.println("Thanks you!!!");
+                System.out.println("Thanks you!!! testttttttt");
                 break;
             default:
                 System.out.println("Error");
@@ -59,9 +55,10 @@ public class UserMethodes {
         }
     }
     public boolean exit(int choiseUser){
-        boolean exitFlag = false;
+        boolean exitFlag = true;
         if (choiseUser == 5 ){
-            exitFlag = true;
+            exitFlag = false;
+            System.out.println("Goodbye, Thanks you!!!");
         }
         return exitFlag;
     }

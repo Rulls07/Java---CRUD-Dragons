@@ -58,7 +58,6 @@ public class DBqueryDragons {
         Dragons dragonNew = new Dragons();
         dragonNew.newDragon();
         try {
-
             String query = "INSERT INTO dragons (id_dragon , dragon, sexe, longueur, nombre_ecailles, crache_feu,comportement_amoureux) VALUES ( ?, ? , ? , ? , ? , ?, ? )";
             PreparedStatement declaration = accessDataBase.prepareStatement(query);
             declaration.setInt(1, dragonNew.getId_dragon());
@@ -68,7 +67,6 @@ public class DBqueryDragons {
             declaration.setInt(5, dragonNew.getNombre_ecailles());
             declaration.setString(6, dragonNew.getCrache_feu());
             declaration.setString(7, dragonNew.getComportement_amoureux());
-
             int executeUpdate = declaration.executeUpdate();
             flag = (executeUpdate == 1);
         } catch (Exception e) {
@@ -102,7 +100,6 @@ public class DBqueryDragons {
             declaration.setString(1, nameDragon);
             ResultSet resultat = declaration.executeQuery();
             while (resultat.next()) {
-
                 dra.setId_dragon(resultat.getInt("id_dragon"));
                 dra.setDragon(resultat.getString("dragon"));
                 dra.setSexe(resultat.getString("sexe"));
@@ -135,6 +132,7 @@ public class DBqueryDragons {
             declaration.setString(1, nameDragon);
             int executeUpdate = declaration.executeUpdate();
             success = (executeUpdate == 1);
+            System.out.println("The dragon was removed from the database.");
         } catch (SQLException e) {
             System.err.println("Error remove dragons: "
                     + e.getMessage());
