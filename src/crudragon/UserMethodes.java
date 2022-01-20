@@ -2,7 +2,8 @@ package crudragon;
 
 import static crudragon.DBqueryDragons.createDragon;
 import static crudragon.DBqueryDragons.deleteByNameDragon;
-import static crudragon.DBqueryDragons.getDragon;
+import static crudragon.DBqueryDragons.getDragonByName;
+
 import static crudragon.DBqueryDragons.readGetAll;
 import java.util.Scanner;
 
@@ -35,16 +36,16 @@ public class UserMethodes {
 
         switch (choiseUser) {
             case 0:
-                createDragon("toto");
+                createDragon();
                 break;
             case 1:
                 readGetAll();
                 break;
             case 2:
-                getDragon();
+                getDragonByName();
                 break;
             case 3:
-                getDragon();
+                
                 break;
             case 4:
                 deleteByNameDragon();

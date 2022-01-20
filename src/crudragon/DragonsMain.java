@@ -2,7 +2,8 @@ package crudragon;
 
 import static crudragon.DBConnexion.openConnection;
 import static crudragon.DBqueryDragons.createDragon;
-import static crudragon.DBqueryDragons.getDragon;
+import static crudragon.DBqueryDragons.deleteByNameDragon;
+import static crudragon.DBqueryDragons.getDragonByName;
 import static crudragon.DBqueryDragons.readGetAll;
 
 /**
@@ -29,8 +30,10 @@ public class DragonsMain {
         System.out.println("------------------------- CREATE NEW DRAGON -------------------------");
         createDragon();
         System.out.println("------------------------- GET DRAGONS BY NAME -------------------------");
-//        getDragon();
+        getDragonByName();
         System.out.println("------------------------- MODIFY - DRAGON -------------------------");
+        System.out.println("------------------------- DELETE - DRAGON -------------------------");
+        deleteByNameDragon();
     }
 
 }

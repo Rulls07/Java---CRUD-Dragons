@@ -47,6 +47,11 @@ public class DBqueryDragons {
         return dragonsList;
     }
 
+    /**
+     * creation of a new dragon
+     *
+     * @return // true = Insertion successful
+     */
     public static boolean createDragon() {
         boolean flag = false;
         System.out.println("Create a new dragon");
@@ -63,7 +68,7 @@ public class DBqueryDragons {
             declaration.setInt(5, dragonNew.getNombre_ecailles());
             declaration.setString(6, dragonNew.getCrache_feu());
             declaration.setString(7, dragonNew.getComportement_amoureux());
-            
+
             int executeUpdate = declaration.executeUpdate();
             flag = (executeUpdate == 1);
         } catch (Exception e) {
@@ -86,7 +91,7 @@ public class DBqueryDragons {
      *
      * @return a dragon
      */
-    public static Dragons getDragon() {
+    public static Dragons getDragonByName() {
         Dragons dra = new Dragons();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the dragon's name: ");
@@ -114,14 +119,18 @@ public class DBqueryDragons {
         }
         return dra;
     }
-
+    /**
+     * Delete a dragon from the database
+     *
+     * @return // true = Delete successful
+     */
     public static boolean deleteByNameDragon() {
         boolean success = false;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the dragon's name: ");
+        System.out.println("Enter the dragon's name to remove it from the database: ");
         String nameDragon = scanner.nextLine();
         try {
-            String query = "DELETE FROM dragons WHERE nom = ?";
+            String query = "DELETE FROM dragons WHERE dragon = ?";
             PreparedStatement declaration = accessDataBase.prepareStatement(query);
             declaration.setString(1, nameDragon);
             int executeUpdate = declaration.executeUpdate();
