@@ -91,7 +91,7 @@ public class Dragons {
     }
 
     public void newDragon() {
-        System.out.println("Saisissez un nouveau Dragon");
+        System.out.println("Enter a new Dragon");
         Scanner sc = new Scanner(System.in);
         System.out.println("Id Dragon : ");
         this.setId_dragon(sc.nextInt());
@@ -111,5 +111,6 @@ public class Dragons {
         this.setComportement_amoureux(sc.nextLine());
         System.out.println(this.toString());
     }
+
 
 }

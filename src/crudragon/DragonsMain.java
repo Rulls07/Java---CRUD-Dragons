@@ -23,6 +23,7 @@ public class DragonsMain {
             flag = user.exit(userChoice);
 
         } while (flag);
+
     }
 
 }
