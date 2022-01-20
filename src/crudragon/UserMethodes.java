@@ -47,7 +47,7 @@ public class UserMethodes {
                 deleteByNameDragon();
                 break;
             case 5:
-                System.out.println("Thanks you!!! testttttttt");
+                System.out.println("Goodbye, Thanks you!!!");
                 break;
             default:
                 System.out.println("Error");
@@ -58,7 +58,6 @@ public class UserMethodes {
         boolean exitFlag = true;
         if (choiseUser == 5 ){
             exitFlag = false;
-            System.out.println("Goodbye, Thanks you!!!");
         }
         return exitFlag;
     }

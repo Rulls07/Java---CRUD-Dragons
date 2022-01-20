@@ -54,6 +54,7 @@ public class DBqueryDragons {
      */
     public static boolean createDragon() {
         boolean flag = false;
+        System.out.println("------------------------- CREATE NEW DRAGON -------------------------");
         System.out.println("Create a new dragon");
         Dragons dragonNew = new Dragons();
         dragonNew.newDragon();
@@ -83,7 +84,6 @@ public class DBqueryDragons {
     public static void getDragonById(int id_dragon) {
 
     }
-
     /**
      * Query returns a dragon by Name
      *
@@ -92,6 +92,7 @@ public class DBqueryDragons {
     public static Dragons getDragonByName() {
         Dragons dra = new Dragons();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("------------------------- GET DRAGONS BY NAME -------------------------");
         System.out.println("Enter the dragon's name: ");
         String nameDragon = scanner.nextLine();
         try {
@@ -124,6 +125,7 @@ public class DBqueryDragons {
     public static boolean deleteByNameDragon() {
         boolean success = false;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("------------------------- DELETE - DRAGON -------------------------");
         System.out.println("Enter the dragon's name to remove it from the database: ");
         String nameDragon = scanner.nextLine();
         try {
@@ -132,7 +134,7 @@ public class DBqueryDragons {
             declaration.setString(1, nameDragon);
             int executeUpdate = declaration.executeUpdate();
             success = (executeUpdate == 1);
-            System.out.println("The dragon was removed from the database.");
+            System.out.println("The dragon was removed from the database!!!.");
         } catch (SQLException e) {
             System.err.println("Error remove dragons: "
                     + e.getMessage());
