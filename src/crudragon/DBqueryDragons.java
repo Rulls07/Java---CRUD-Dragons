@@ -47,23 +47,31 @@ public class DBqueryDragons {
         return dragonsList;
     }
 
-    /**
-     *
-     * @param dragon
-     * @return
-     */
-    public static boolean createDragon(String dragon) {
-        boolean success = false;
+    public static boolean createDragon() {
+        boolean flag = false;
+        System.out.println("Create a new dragon");
+        Dragons dragonNew = new Dragons();
+        dragonNew.newDragon();
         try {
-            String query = "INSERT INTO `dragons` VALUES (?)";
+
+            String query = "INSERT INTO dragons (id_dragon , dragon, sexe, longueur, nombre_ecailles, crache_feu,comportement_amoureux) VALUES ( ?, ? , ? , ? , ? , ?, ? )";
             PreparedStatement declaration = accessDataBase.prepareStatement(query);
-            declaration.setString(1, dragon);
-            boolean executeCreate = declaration.execute();
-            success = (executeCreate);
-        } catch (SQLException e) {
-            System.err.println("Erreur ajout de dragon: " + e.getMessage());
+            declaration.setInt(1, dragonNew.getId_dragon());
+            declaration.setString(2, dragonNew.getDragon());
+            declaration.setString(3, dragonNew.getSexe());
+            declaration.setInt(4, dragonNew.getLongueur());
+            declaration.setInt(5, dragonNew.getNombre_ecailles());
+            declaration.setString(6, dragonNew.getCrache_feu());
+            declaration.setString(7, dragonNew.getComportement_amoureux());
+            
+            int executeUpdate = declaration.executeUpdate();
+            flag = (executeUpdate == 1);
+        } catch (Exception e) {
+            System.err.println(
+                    "Erreur d'insertion Dragons: " + e.getMessage()
+            );
         }
-        return success;
+        return flag;
     }
 
     /**
@@ -106,8 +114,8 @@ public class DBqueryDragons {
         }
         return dra;
     }
-    
-        public static boolean deleteByNameDragon() {
+
+    public static boolean deleteByNameDragon() {
         boolean success = false;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the dragon's name: ");

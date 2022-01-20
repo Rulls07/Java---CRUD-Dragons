@@ -1,5 +1,7 @@
 package crudragon;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Rulls
@@ -88,6 +90,26 @@ public class Dragons {
         return "Dragons{" + "id_dragon=" + id_dragon + ", dragon=" + dragon + ", sexe=" + sexe + ", longueur=" + longueur + ", nombre_ecailles=" + nombre_ecailles + ", crache_feu=" + crache_feu + ", comportement_amoureux=" + comportement_amoureux + '}';
     }
 
-    
-    
+    public void newDragon() {
+        System.out.println("Saisissez un nouveau Dragon");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Id Dragon : ");
+        this.setId_dragon(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Enter the dragon's name: ");
+        this.setDragon(sc.nextLine());
+        System.out.println("Enter the dragon's sex: ");
+        this.setSexe(sc.nextLine());
+        System.out.println("Enter the length of the dragon: ");
+        this.setLongueur(sc.nextInt());
+        System.out.println("Number dragon scale: ");
+        this.setNombre_ecailles(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Does it spit fire? : ");
+        this.setCrache_feu(sc.nextLine());
+        System.out.println("love behavior  : ");
+        this.setComportement_amoureux(sc.nextLine());
+        System.out.println(this.toString());
+    }
+
 }
