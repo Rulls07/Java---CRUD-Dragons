@@ -84,6 +84,7 @@ public class DBqueryDragons {
     public static void getDragonById(int id_dragon) {
 
     }
+
     /**
      * Query returns a dragon by Name
      *
@@ -117,6 +118,7 @@ public class DBqueryDragons {
         }
         return dra;
     }
+
     /**
      * Delete a dragon from the database
      *
@@ -142,4 +144,35 @@ public class DBqueryDragons {
         return success;
     }
 
+    /**
+     * Query update name dragon
+     * @return 
+     */
+    public static boolean updateDragon() {
+        boolean success = false;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("------------------------- UPDATE - DRAGON -------------------------");
+        System.out.println("Enter the dragon's name to be modified in the database: ");
+        String nameDragon = scanner.nextLine();
+        int updateChoice = UserMethodes.updateMenu();
+        String nameCol = UserMethodes.updateChoice(updateChoice);
+        System.out.println("Enter new value: ");
+        String newValue = scanner.nextLine();
+        
+        try {
+            String query = "UPDATE dragons SET "+ nameCol +" = ?  WHERE dragon = ?";
+            PreparedStatement declaration = accessDataBase.prepareStatement(query);
+            declaration.setString(1, newValue);
+            declaration.setString(2, nameDragon);
+            int executeUpdate = declaration.executeUpdate();
+            success = (executeUpdate == 1);
+            System.out.println("The dragon was modified in the database!!!.");
+        } catch (SQLException e) {
+            System.err.println("Error remove dragons: "
+                    + e.getMessage());
+        }
+
+        return success;
+
+    }
 }
